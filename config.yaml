@@ -1,0 +1,53 @@
+# === Output Templates ===
+folder_format: "{artist} - {album} [{catalogue}][{year}]"
+track_format: "{track:02d} - {title}.{ext}"
+
+# === Metadata Fallbacks ===
+fallbacks:
+  artist: ["track_artist", "album_artist", "folder_guess"]
+  title: ["title_tag", "filename_guess"]
+  album: ["album_tag", "parent_folder"]
+  year: ["year_tag", "folder_guess"]
+  catalogue: ["catalogue_tag", "folder_guess"]
+  track: ["track_tag", "filename_guess"]
+
+# === Rename Rules (Required for renamer.py to run) ===
+rename:
+  include_catalog: true
+  include_year: true
+  use_va_for_compilations: true
+  capitalize_titles: true
+  separator: " - "
+
+track_format:
+  prefix_track_number: true
+  track_number_padding: 2
+  separator: " - "
+
+# === Rename Options ===
+dry_run: true
+rename_tracks: true
+rename_folders: true
+interactive: false
+skip_on_missing_metadata: true
+fail_on_conflict: true
+
+# === Token Cleaning ===
+clean_tokens:
+  enabled: true
+  remove_double_spaces: true
+  trim_whitespace: true
+  replace_illegal_chars: true
+
+# === File Handling ===
+rename_hidden_files: false
+file_extensions:
+  - flac
+  - mp3
+  - wav
+  - m4a
+  - aiff
+
+# === Logging ===
+log_changes: true
+log_path: "logs/rename.log"
